@@ -22,3 +22,5 @@ Projeto SoftLists
     - Descrição
     - Quantidade
     - Carrinho
+
+5 - Front-End nome do projeto é List-Vite
