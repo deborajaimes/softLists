@@ -55,7 +55,8 @@ api.post("/item", async (req,res) => {
 })
 
 api.get("/usuario", async (req, res) => {
-    res.json(await usuarioModel.find({}))
+    const resultado = await itemModel.create(req.body)
+    res.json({mensagem: "Cadastro Adicionado com sucesso!"})
 })
 
 api.post("/usuario", async (req, res) => {
