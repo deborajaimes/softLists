@@ -54,6 +54,11 @@ api.post("/item", async (req, res) => {
     res.json({ mensagem: "Item adicionado com sucesso!" })
 })
 
+api.put("/item/:id", async (req, res) => {
+    const resultado = await itemModel.updateOne({_id: req.params.id})
+    res.json({ mensagem: "o!" })
+})
+
 api.get("/usuario", async (req, res) => {
     res.json(await usuarioModel.find({}))
 })
