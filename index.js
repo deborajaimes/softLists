@@ -43,24 +43,24 @@ const itemModel = mongoose.model("Item", itemSchema) //registra o model do Item
 api.get("/", (req, res) => {
     res.json({ mensagem: "API SofList" })
 })
-    
+
 
 api.get("/item", async (req, res) => {
     res.json(await itemModel.find({}))
 })
 
-api.post("/item", async (req,res) => {
-   const resultado = await itemModel.create(req.body)
-    res.json({mensagem: "Item adicionado com sucesso!"})
+api.post("/item", async (req, res) => {
+    const resultado = await itemModel.create(req.body)
+    res.json({ mensagem: "Item adicionado com sucesso!" })
 })
 
 api.get("/usuario", async (req, res) => {
-    const resultado = await itemModel.create(req.body)
-    res.json({mensagem: "Cadastro Adicionado com sucesso!"})
+    res.json(await usuarioModel.find({}))
 })
 
 api.post("/usuario", async (req, res) => {
-    res.json(await usuarioModel.create(req.body))
+    const resultado = await usuarioModel.create(req.body)
+    res.json({ mensagem: "Usuario adicionado com sucesso!" })
 })
 
 
