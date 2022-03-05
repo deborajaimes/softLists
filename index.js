@@ -50,17 +50,22 @@ api.get("/item", async (req, res) => {
 })
 
 api.post("/item", async (req, res) => {
-    const resultado = await itemModel.create(req.body)
-    res.json({ mensagem: "Item adicionado com sucesso!" })
+    let resultado
+    if (req.body._id) resultado = await itemModel.updateOne({ _id: req.body._id }, req.body)
+
+    else resultado = await itemModel.create(req.body)
+    res.json({ mensagem: "Item salvo com sucesso!" })
 })
 
 api.put("/item/:id", async (req, res) => {
-    const resultado = await itemModel.updateOne({_id: req.params.id})
+    const resultado = await itemModel.updateOne({ _id: req.params.id }, req.body)
+    console.log(req.body)
     res.json({ mensagem: "o!" })
 })
+
 api.delete("/item/:id", async (req, res) => {
-    const resultado = await itemModel.deleteOne({_id: req.params.id})
-	res.json(resultado)
+    const resultado = await itemModel.deleteOne({ _id: req.params.id })
+    res.json(resultado)
 })
 
 
