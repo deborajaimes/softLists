@@ -58,6 +58,11 @@ api.put("/item/:id", async (req, res) => {
     const resultado = await itemModel.updateOne({_id: req.params.id})
     res.json({ mensagem: "o!" })
 })
+api.delete("/item/:id", async (req, res) => {
+    const resultado = await itemModel.deleteOne({_id: req.params.id})
+	res.json(resultado)
+})
+
 
 api.get("/usuario", async (req, res) => {
     res.json(await usuarioModel.find({}))
@@ -73,4 +78,3 @@ api.post("/usuario", async (req, res) => {
 api.listen(PORT, () => {
     console.log("PAI TA ONNNN E ROTEANDO!!!! IXXXQUECE TAMO IXXXXTORADO")
 })
-
