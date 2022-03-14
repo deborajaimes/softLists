@@ -1,10 +1,11 @@
-const express = require("express")
-const mongoose = require("mongoose")
-const cors = require("cors")
-const res = require("express/lib/response")
+import express from "express"
+import mongoose from "mongoose"
+import cors from "cors"
+import "dotenv/config"
 
+const PORT = process.env.PORT
 const api = express() //Cria a API
-const PORT = 3001
+
 
 
 api.use(cors()) //libera o acesso api
@@ -81,5 +82,5 @@ api.post("/usuario", async (req, res) => {
 
 
 api.listen(PORT, () => {
-    console.log("PAI TA ONNNN E ROTEANDO!!!! IXXXQUECE TAMO IXXXXTORADO")
+    console.log("CONECTADO NA PORTA: " + PORT)
 })
